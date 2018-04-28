@@ -1,12 +1,12 @@
 {
-  "name": "yelpcamp",
+  "name": "tastebuddy",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Sandeep Sahadevan",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
