@@ -1,0 +1,17 @@
+<% include ../partials/header %>
+
+
+    <div class="container">
+            <h2 class = "hdcenter">Edit <%= campground.name%></h2>
+        <form action="/campgrounds/<%= campground._id%>?_method=PUT" method="POST">
+
+            <input class = "form-control inputwidth text-center" type="text" name="campground[name]" value = "<%= campground.name%>">
+            <input class = "form-control inputwidth text-center" type="text" name="campground[image]" value = "<%= campground.image%>">
+            <input class = "form-control inputwidth text-center" type="text" name="campground[description]" value = "<%= campground.description%>">
+            <button class = "btn btn-outline-info btn-block btnwidth">Edit CampGrounds</button>
+
+        </form>
+
+        <div class = "footerwidth"><a href="/campgrounds">Back</a></div>
+    </div>
+<% include ../partials/footer %>

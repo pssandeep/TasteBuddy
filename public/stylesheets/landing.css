@@ -1,0 +1,81 @@
+body {
+    background-color: rgba(0, 0, 0, 1.0);
+}
+
+#landing-header {
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    padding-top: 40vh;
+}
+
+#landing-header h1 {
+    color: #fff;
+}
+
+.slideshow {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.slideshow li {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    animation: imageAnimation 50s linear infinite;
+}
+
+.slideshow li:nth-child(1) {
+    background-image: url(https://images.unsplash.com/photo-1496080174650-637e3f22fa03?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b7ca353cfcc4299e6c3d431ff862e1cf&auto=format&fit=crop&w=500&q=60)
+}
+
+.slideshow li:nth-child(2) {
+    background-image: url(https://images.unsplash.com/photo-1518466169174-5c4e6dfa9256?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=dd0458e5f89821506a898eace22acc2b&auto=format&fit=crop&w=500&q=60);
+    animation-delay: 10s;
+}
+
+.slideshow li:nth-child(3) {
+    background-image: url(https://images.unsplash.com/photo-1520515148174-24eb6de39f21?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c4ddf95d00c5673f815ce59234ad13f3&auto=format&fit=crop&w=500&q=60);
+    animation-delay: 20s;
+}
+
+.slideshow li:nth-child(4) {
+    background-image: url(https://images.unsplash.com/photo-1516483954662-1bee87353427?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=edb084666bda9b3776ff8338ad4a9c44&auto=format&fit=crop&w=500&q=60);
+    animation-delay: 30s;
+}
+
+.slideshow li:nth-child(5) {
+    background-image: url(https://images.unsplash.com/photo-1516361728389-998730856765?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3e44b75977fc848b6cd15f09c97a71f6&auto=format&fit=crop&w=500&q=60);
+    animation-delay: 40s;
+}
+
+@keyframes imageAnimation { 
+    0% { 
+      opacity: 0; 
+      animation-timing-function: ease-in;
+    }
+    10% {
+      opacity: 1;
+      animation-timing-function: ease-out;
+    }
+    20% {
+      opacity: 1
+    }
+    30% {
+      opacity: 0
+    }
+  }

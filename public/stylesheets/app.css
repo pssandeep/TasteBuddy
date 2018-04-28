@@ -1,0 +1,64 @@
+/* body{
+    color:brown;
+} */
+
+.row {
+    display :flex;
+    flex-wrap: wrap;
+}
+
+.imgheight{
+
+    height : 200px;
+
+}
+
+.navbar-collapse.collapse.in {
+    display: block!important;
+  }
+
+input.inputwidth[type = "text"],
+input.inputwidth[type = "password"],
+button.btnwidth{
+      width : 30%;
+      margin :25px auto;
+  }
+
+  div.footerwidth{
+      width : 30%;
+      margin : 25px auto;
+      
+  }
+  div.div-comments{
+    border-left: 1px solid rgba(0,0,0,0.1);
+    padding-left: 10px;
+}
+
+  div.div-comments:hover{
+        border-left : 3px solid rgba(91, 37, 216, 1.0);
+        padding-left: 10px;
+  }
+
+
+.hdcenter{
+    text-align: center;
+}
+
+p  a.btn{
+    margin-top :15px;
+}
+
+p small {
+    font-size : .65em;
+}
+
+p.lead.text-muted {
+    margin-top : 20px;
+    color: rgba(91, 37, 216, 1.0);
+    font-weight: bolder;
+}
+
+div.div-comments-margin{
+    margin-top : 25px;
+    margin-bottom: 25px;
+}
