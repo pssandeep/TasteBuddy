@@ -67,4 +67,4 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 app.use(indexRoutes);
 
 //server port listening at Port 3000
-app.listen("3000", () => console.log("YelpCamp Server started on Port #3000"));
+app.listen("3000", () => console.log("TasteBuddy Server started on Port #3000"));
