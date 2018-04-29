@@ -1,5 +1,7 @@
 body {
     background-color: rgba(0, 0, 0, 1.0);
+    font-family: 'Cormorant Garamond', serif;
+    /* font-family: 'Playfair Display', serif; */
 }
 
 #landing-header {
