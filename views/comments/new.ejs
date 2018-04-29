@@ -2,8 +2,8 @@
 
 
     <div class="container">
-            <h2 class = "hdcenter">Add New Comment to <%= campground.name%></h2>
-        <form action="/campgrounds/<%= campground._id%>/comments" method="POST">
+            <h2 class = "hdcenter">Add New Comment to <%= recipe.name%></h2>
+        <form action="/recipes/<%= recipe._id%>/comments" method="POST">
 
             <input class = "form-control inputwidth text-center" type="text" name="comment[text]" placeholder="Enter Comments here ...">
             <!-- <input class = "form-control inputwidth text-center" type="text" name="comment[author]" placeholder="Author"> -->
@@ -11,6 +11,6 @@
 
         </form>
 
-        <div class = "footerwidth"><a href="/campgrounds/<%= campground._id%>">Back</a></div>
+        <div class = "footerwidth"><a href="/recipes/<%= recipe._id%>">Back</a></div>
     </div>
     <% include ../partials/footer %>

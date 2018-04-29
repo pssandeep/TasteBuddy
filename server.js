@@ -9,12 +9,12 @@ var methodOverride = require("method-override");
 var flash = require("connect-flash");
 
 //Schemas Required
-var CampGround = require("./models/campground");
+var recipe = require("./models/recipe");
 var Comment = require("./models/comment");
 var User = require("./models/user");
 
 //Routes Required
-var campGroundRoutes = require("./routes/campgrounds");
+var recipeRoutes = require("./routes/recipes");
 var commentRoutes = require("./routes/comments");
 var indexRoutes = require("./routes/index");
 
@@ -29,7 +29,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 //Connect to MongoDB
-mongoose.connect("mongodb://localhost/YelpCamp");
+mongoose.connect("mongodb://localhost/tastebuddy");
 
 //Call the Seed Function to populate the refresh the database.
 // seedDB();
@@ -62,8 +62,8 @@ app.use((req, res, next) => {
 });
 
 //Routes
-app.use("/campgrounds", campGroundRoutes);
-app.use("/campgrounds/:id/comments", commentRoutes);
+app.use("/recipes", recipeRoutes);
+app.use("/recipes/:id/comments", commentRoutes);
 app.use(indexRoutes);
 
 //server port listening at Port 3000

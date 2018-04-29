@@ -1,49 +1,49 @@
 var express = require("express");
 var router = express.Router();
-var CampGround = require("../models/campground");
+var recipe = require("../models/recipe");
 var middleware = require("../middleware");
 
-// Campgrounds Route
+// recipes Route
 
-// index route. To display all the campgrounds
+// index route. To display all the recipes
 router.get("/", function (req, res) {
-    CampGround.find({}, function (err, campgrounds) {
+    recipe.find({}, function (err, recipes) {
         if (err) {
             console.log(err);
             req.flash("error",err);
             res.redirect("back");
         } else {
-            res.render("campgrounds/index", {
-                campgrounds: campgrounds
+            res.render("recipes/index", {
+                recipes: recipes
             });
         }
     });
 
 });
 
-// get route to show the form to enter new camp grounds.
+// get route to show the form to enter new recipes.
 router.get("/new", middleware.isLoggedIn, function (req, res) {
 
-    res.render("campgrounds/new");
+    res.render("recipes/new");
 });
 
-//show route. Show more details about the campgrounds
+//show route. Show more details about the recipes
 router.get("/:id", function (req, res) {
-    CampGround.findById(req.params.id).populate("comments").exec(function (err, campground) {
+    recipe.findById(req.params.id).populate("comments").exec(function (err, recipe) {
         if (err) {
             console.log(err);
             req.flash("error",err);
             res.redirect("back");
         } else {
-            res.render("campgrounds/show", {
-                campground: campground
+            res.render("recipes/show", {
+                recipe: recipe
             });
         }
     });
 
 });
 
-//post route. Add new campgrounds to database
+//post route. Add new recipes to database
 router.post("/", middleware.isLoggedIn, function (req, res) {
     var name = req.body.name;
     var image = req.body.image;
@@ -52,62 +52,62 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
         id: req.user._id,
         username: req.user.username
     };
-    var newCampGround = {
+    var newrecipe = {
         name: name,
         image: image,
         description: desc,
         author: author
     };
 
-    CampGround.create(newCampGround, function (err, newlyAddedCampground) {
+    recipe.create(newrecipe, function (err, newlyAddedrecipe) {
         if (err) {
             console.log(err);
             req.flash("error",err.message);
             res.redirect("back");
         } else {
-            req.flash("success","Campground created successfully.");
-            res.redirect("/campgrounds");
+            req.flash("success","recipe created successfully.");
+            res.redirect("/recipes");
         }
     });
 
 
 });
 
-//Form to Edit Campgrounds
-router.get("/:id/edit", middleware.checkCampGroundOwnership, (req, res) => {
-        CampGround.findById(req.params.id, (err, foundCampGround) => {
-            res.render("campgrounds/edit", {
-                campground: foundCampGround
+//Form to Edit recipes
+router.get("/:id/edit", middleware.checkRecipeOwnership, (req, res) => {
+        recipe.findById(req.params.id, (err, foundrecipe) => {
+            res.render("recipes/edit", {
+                recipe: foundrecipe
             });
         });
 });
 
-//Edit Campgrounds
-router.put("/:id", middleware.checkCampGroundOwnership,  (req, res) => {
-    CampGround.findByIdAndUpdate(req.params.id, req.body.campground, (err, updatedCampGround) => {
+//Edit recipes
+router.put("/:id", middleware.checkRecipeOwnership,  (req, res) => {
+    recipe.findByIdAndUpdate(req.params.id, req.body.recipe, (err, updatedrecipe) => {
         if (err) {
             console.log(err);
             req.flash("error",err.message);
             res.redirect("back");
         } else {
-            req.flash("success","Campground saved successfully.");
-            res.redirect("/campgrounds/" + req.params.id);
+            req.flash("success","recipe saved successfully.");
+            res.redirect("/recipes/" + req.params.id);
         }
 
     });
 
 });
 
-//Delete Campgrounds
-router.delete("/:id", middleware.checkCampGroundOwnership, (req, res) => {
-    CampGround.findByIdAndRemove(req.params.id, (err) => {
+//Delete recipes
+router.delete("/:id", middleware.checkRecipeOwnership, (req, res) => {
+    recipe.findByIdAndRemove(req.params.id, (err) => {
         if (err) {
             console.log(err);
             req.flash("error",err.message);
             res.redirect("back");
         } else {
-            req.flash("success","Campground deleted successfully.");
-            res.redirect("/campgrounds/");
+            req.flash("success","recipe deleted successfully.");
+            res.redirect("/recipes/");
         }
 
     });
@@ -123,18 +123,18 @@ router.delete("/:id", middleware.checkCampGroundOwnership, (req, res) => {
 // }
 
 // //Check if the user is logged in and authorised to edit/delete
-// function checkCampGroundOwnership(req, res, next) {
+// function checkrecipeOwnership(req, res, next) {
 
 //     if (req.isAuthenticated()) {
-//         CampGround.findById(req.params.id, (err, foundCampGround) => {
+//         recipe.findById(req.params.id, (err, foundrecipe) => {
 //             if (err) {
 //                 console.log(err);
 //             } else {
-//                 //Does user own campground
-//                 if (foundCampGround.author.id.equals(req.user._id)) {
+//                 //Does user own recipe
+//                 if (foundrecipe.author.id.equals(req.user._id)) {
 //                     next();
 //                 } else {
-//                     //res.send("Cant edit campgrounds. Campground can be editted only by their owners!");
+//                     //res.send("Cant edit recipes. recipe can be editted only by their owners!");
 //                     res.redirect("back");
 //                 }
 //             }

@@ -1,0 +1,17 @@
+<% include ../partials/header %>
+
+
+    <div class="container">
+            <h2 class = "hdcenter">Edit <%= recipe.name%></h2>
+        <form action="/recipes/<%= recipe._id%>?_method=PUT" method="POST">
+
+            <input class = "form-control inputwidth text-center" type="text" name="recipe[name]" value = "<%= recipe.name%>">
+            <input class = "form-control inputwidth text-center" type="text" name="recipe[image]" value = "<%= recipe.image%>">
+            <input class = "form-control inputwidth text-center" type="text" name="recipe[description]" value = "<%= recipe.description%>">
+            <button class = "btn btn-outline-info btn-block btnwidth">Edit recipes</button>
+
+        </form>
+
+        <div class = "footerwidth"><a href="/recipes">Back</a></div>
+    </div>
+<% include ../partials/footer %>

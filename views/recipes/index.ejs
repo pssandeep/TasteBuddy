@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+
+    <div class="container">
+        <header class="jumbotron">
+            <div class="container">
+                <h1>Welcome To TasteBuddy</h1>
+                <p>Check out the recipes from all around the world.</p>
+                <p>
+                    <a class="btn btn-success btn-lg" href="/recipes/new"> Add Recipe</a>
+                </p>
+            </div>
+        </header>
+        <div class="row row-eq-height">
+            <% recipes.forEach(function(recipe){ %>
+                <div class="col-md-3 col-sm-6">
+                        <img class = "img-thumbnail rounded float-left imgheight" src="<%= recipe.image%>" title="<%= recipe.name%>">
+                        <div class = "caption text-center"><%= recipe.name%></div>
+                        <div class = "text-center"><a class="btn btn-primary btn-sm" href="/recipes/<%= recipe._id%>">More Info</a></div>
+
+                </div>
+                <% }); %>
+        </div>
+
+    </div>
+    <% include ../partials/footer %>

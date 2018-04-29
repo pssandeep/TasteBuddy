@@ -1,5 +1,5 @@
 //Middleware
-var CampGround = require("../models/campground");
+var Recipe = require("../models/recipe");
 var Comment = require("../models/comment");
 
 var middlewareObj = {};
@@ -17,20 +17,20 @@ middlewareObj.isLoggedIn = function (req, res, next) {
 
 
 //Check if the user is logged in and authorised to edit/delete
-middlewareObj.checkCampGroundOwnership = function (req, res, next) {
+middlewareObj.checkRecipeOwnership = function (req, res, next) {
 
     if (req.isAuthenticated()) {
-        CampGround.findById(req.params.id, (err, foundCampGround) => {
+        Recipe.findById(req.params.id, (err, foundrecipe) => {
             if (err) {
-                req.flash("error","Campground not found. Something went wrong");
+                req.flash("error","recipe not found. Something went wrong");
                 res.redirect("back");
                 // console.log(err);
             } else {
-                //Does user own campground
-                if (foundCampGround.author.id.equals(req.user._id)) {
+                //Does user own recipe
+                if (foundrecipe.author.id.equals(req.user._id)) {
                     next();
                 } else {
-                    //res.send("Cant edit campgrounds. Campground can be editted only by their owners!");
+                    //res.send("Cant edit recipes. recipe can be editted only by their owners!");
                     req.flash("error","No permission to edit/delete others content");
                     res.redirect("back");
                 }

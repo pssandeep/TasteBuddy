@@ -23,8 +23,8 @@ router.post("/register", (req, res) => {
             res.redirect("back");
         } else {
             passport.authenticate("local")(req, res, () => {
-                req.flash("success", "Welcome to YelpCamp " + user.username);
-                res.redirect("/campgrounds");
+                req.flash("success", "Welcome to TasteBuddy " + user.username);
+                res.redirect("/recipes");
 
             });
         }
@@ -39,7 +39,7 @@ router.get("/login", (req, res) => {
 
 //Login User
 router.post("/login", passport.authenticate("local", {
-    successRedirect: "/campgrounds",
+    successRedirect: "/recipes",
     failureRedirect: "/login"
 }), (req, res) => {});
 
@@ -47,7 +47,7 @@ router.post("/login", passport.authenticate("local", {
 router.get("/logout", (req, res) => {
     req.logOut();
     req.flash("success", "You have successfully logged out. See you soon.");
-    res.redirect("/campgrounds");
+    res.redirect("/recipes");
 });
 
 //home route
@@ -60,7 +60,7 @@ router.get("/", function (req, res) {
 //     if (req.isAuthenticated()) {
 //         return next()
 //     }
-//     res.redirect("/campgrounds");
+//     res.redirect("/recipes");
 // }
 
 //Export the router
