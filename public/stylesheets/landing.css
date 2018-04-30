@@ -15,6 +15,10 @@ body {
     color: #fff;
 }
 
+#welcomemsg{
+    color:black;
+}
+
 .slideshow {
     position: fixed;
     width: 100%;
