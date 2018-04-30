@@ -4,14 +4,22 @@
     <div class="container">
             <h2 class = "hdcenter">Create New Recipe</h2>
         <form action="/recipes" method="POST">
-
-            <input class = "form-control inputwidth text-center" type="text" name="name" placeholder="Name">
-            <input class = "form-control inputwidth text-center" type="text" name="image" placeholder="Image URL">
-            <input class = "form-control inputwidth text-center" type="text" name="description" placeholder="Description">
+            <div class = "form-group">
+                <label for = "recipename">Recipe Name</label>
+                <input id = "recipename" class = "form-control inputwidth" type="text" name="name" required>
+            </div>
+            <div class = "form-group">
+                <label for = "recipeimage">Image URL</label>
+                <input id = "recipeimage" class = "form-control inputwidth" type="text" name="image" required>
+            </div>
+            <div class = "form-group">
+                <label for = "recipedescription">Method</label>
+                <textarea id = "recipedescription" rows = "10"  class = "form-control inputwidth" name="description"></textarea>
+            </div>
             <button class = "btn btn-outline-info btn-block btnwidth">Add Recipe</button>
 
         </form>
 
         <div class = "footerwidth"><a href="/recipes">Back</a></div>
     </div>
-    <% include ../partials/footer %>
+<% include ../partials/footer %>

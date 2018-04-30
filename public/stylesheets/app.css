@@ -23,22 +23,24 @@ input.inputwidth[type = "text"],
 input.inputwidth[type = "password"],
 button.btnwidth{
       width : 30%;
-      margin :25px auto;
+      /* margin :25px auto; */
   }
 
   div.footerwidth{
       width : 30%;
-      margin : 25px auto;
+      /* margin : 25px auto; */
       
   }
   div.div-comments{
     border-left: 1px solid rgba(0,0,0,0.1);
-    padding-left: 10px;
+    border-top : 1px solid rgba(0,0,0,0.1);
+    /* border-bottom : 1px solid rgba(0,0,0,0.1); */
+    padding: 10px;
 }
 
   div.div-comments:hover{
-        border-left : 3px solid rgba(91, 37, 216, 1.0);
-        padding-left: 10px;
+        border-left : 3px solid rgba(0, 255, 21,0.75);
+        padding-left: 5px;
   }
 
 
@@ -63,4 +65,16 @@ p.lead.text-muted {
 div.div-comments-margin{
     margin-top : 25px;
     margin-bottom: 25px;
+}
+
+#footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin-top:35px;
+}
+
+.zero-left-padding{
+    padding-left: 0px;
 }
