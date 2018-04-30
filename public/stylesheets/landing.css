@@ -8,16 +8,13 @@ body {
     z-index: 1;
     position: relative;
     text-align: center;
-    padding-top: 40vh;
+    padding-top: 20vh;
 }
 
 #landing-header h1 {
     color: #fff;
 }
 
-#welcomemsg{
-    color:black;
-}
 
 .slideshow {
     position: fixed;
