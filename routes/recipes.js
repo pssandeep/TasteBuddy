@@ -52,7 +52,15 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
         id: req.user._id,
         username: req.user.username
     };
-    var ingredients = req.body.hiddenIngredient;
+    var ingredients = [];
+    console.log("====="+req.body.hiddenIngredient);
+    req.body.hiddenIngredient.forEach(element => {
+        console.log(element.name + "===="+element.quantity);
+        ingredients.push({
+            name : element.name,
+            quantity : element.quantity
+        });
+    });
     var newrecipe = {
         name : name,
         image : image,
