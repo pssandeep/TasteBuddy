@@ -19,8 +19,8 @@ body{
     display: block!important;
   }
 
-input.inputwidth[type = "text"],
-input.inputwidth[type = "password"],
+.form-group input.inputwidth[type = "text"],
+.form-group input.inputwidth[type = "password"],
 button.btnwidth{
       width : 30%;
       /* margin :25px auto; */
@@ -41,6 +41,12 @@ button.btnwidth{
   div.div-comments:hover{
         border-left : 3px solid rgba(0, 255, 21,0.75);
         padding-left: 5px;
+  }
+
+  .div-ingredent{
+      width :50%;
+      margin-bottom: 30px;
+      margin-top:10px;
   }
 
 

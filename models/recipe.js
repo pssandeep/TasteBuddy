@@ -15,6 +15,10 @@ var recipeSchema = new mongoose.Schema({
     comments: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Comment"
+    }],
+    ingredients: [{
+        name:{type:String},
+        quantity:{type:Number}
     }]
 });
 

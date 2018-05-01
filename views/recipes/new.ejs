@@ -2,24 +2,48 @@
 
 
     <div class="container">
-            <h2 class = "hdcenter">Create New Recipe</h2>
+        <h2 class="hdcenter">Create New Recipe</h2>
         <form action="/recipes" method="POST">
-            <div class = "form-group">
-                <label for = "recipename">Recipe Name</label>
-                <input id = "recipename" class = "form-control inputwidth" type="text" name="name" required>
+            <div class="form-group">
+                <label for="recipename">Recipe Name</label>
+                <input class="form-control inputwidth" type="text" name="name" required>
             </div>
-            <div class = "form-group">
-                <label for = "recipeimage">Image URL</label>
-                <input id = "recipeimage" class = "form-control inputwidth" type="text" name="image" required>
+            <div class="form-group">
+                <label for="recipeimage">Image URL</label>
+                <input id="recipeimage" class="form-control inputwidth" type="text" name="image" required>
             </div>
-            <div class = "form-group">
-                <label for = "recipedescription">Method</label>
-                <textarea id = "recipedescription" rows = "10"  class = "form-control inputwidth" name="description"></textarea>
+            <div class="form-group">
+                <label for="recipedescription">Method</label>
+                <textarea id="recipedescription" rows="10" class="form-control inputwidth" name="description"></textarea>
             </div>
-            <button class = "btn btn-outline-info btn-block btnwidth">Add Recipe</button>
 
+            <div class="card card-block bg-light p-3">
+
+                <div class="card-title">
+                    <h5>Add Ingredients and Quantities below</h5>
+                </div>
+                <ul id="ingredienList">
+                </ul>
+
+
+
+                <div class="row div-ingredent">
+                    <div class="col">
+                        <input id="ingredientName" class="form-control inputwidth" type="text" name="ingredient[name]" placeholder="Ingredient">
+                    </div>
+                    <div class="col">
+                        <input id="quantity" class="form-control inputwidth" type="text" name="ingredient[quantity]" placeholder="Quantity">
+                    </div>
+                    <input id="hidden-ingredient" class="form-control inputwidth" type="text" name="hiddenIngredient[]" value = "" placeholder="Quantity">
+                    <button id="add-ingredient" class="btn btn-primary" type=button> Add Ingredient</button>
+                </div>
+            </div>
+            <button class="btn btn-outline-info btn-block btnwidth" type="submit">Add Recipe</button>
+            
         </form>
 
-        <div class = "footerwidth"><a href="/recipes">Back</a></div>
+        <div class="footerwidth">
+            <a href="/recipes">Back</a>
+        </div>
     </div>
-<% include ../partials/footer %>
+    <% include ../partials/footer %>

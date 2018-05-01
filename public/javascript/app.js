@@ -1,15 +1,22 @@
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-    window.addEventListener('load', function () {
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.getElementsByClassName('needs-validation');
-        // Loop over them and prevent submission
-        var validation = Array.prototype.filter.call(forms, function (form) {
-            form.addEventListener('submit', function (event) {
-                if (form.checkValidity() === false) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-            }, false);
+var ingredientList = [];
+
+$("#add-ingredient").on("click", function(event){
+    console.log("CALLED");
+        var ingredient = $("#ingredientName").val();
+        var quantity = $("#quantity").val();
+        $("#ingredientName").val("");
+		$("#quantity").val("");
+		//create a new li and add to ul
+        $("#ingredientList").append("<li>" + ingredient  + " - " + quantity + "</li>")
+        
+        ingredientList.push({
+            name:ingredient,
+            quantity:quantity
         });
-    }, false);
+        $("#hidden-ingredient").val(ingredientList);
+        ingredientList.forEach(element => {
+            console.log(element.name + element.quantity);
+        });
+
+	
+});

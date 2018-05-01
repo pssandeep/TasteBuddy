@@ -12,6 +12,7 @@ var flash = require("connect-flash");
 var recipe = require("./models/recipe");
 var Comment = require("./models/comment");
 var User = require("./models/user");
+var Ingredient = require("./models/grocery");
 
 //Routes Required
 var recipeRoutes = require("./routes/recipes");

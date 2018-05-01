@@ -52,11 +52,13 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
         id: req.user._id,
         username: req.user.username
     };
+    var ingredients = req.body.hiddenIngredient;
     var newrecipe = {
-        name: name,
-        image: image,
-        description: desc,
-        author: author
+        name : name,
+        image : image,
+        description : desc,
+        author : author,
+        ingredients : ingredients
     };
 
     recipe.create(newrecipe, function (err, newlyAddedrecipe) {
