@@ -34,16 +34,9 @@
             <div class = "col-md-3">
                 <h4>Ingredients</h4>
                 <ul>
-                    <li>Ingredients 1</li>
-                    <li>Ingredients 1</li>
-                    <li>Ingredients 1</li>
-                    <li>Ingredients 1</li>
-                    <li>Ingredients 1</li>
-                    <li>Ingredients 1</li>
-                    <li>Ingredients 1</li>
-                    <li>Ingredients 1</li>
-                    <li>Ingredients 1</li>
-                    <li>Ingredients 1</li>
+                    <% recipe.ingredients.forEach(function(ingredient){ %>
+                        <li><%= ingredient.name%> - <%= ingredient.quantity%></li>
+                    <% })%>
                 </ul>
             </div>
         </div>

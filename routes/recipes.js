@@ -53,8 +53,6 @@ router.post("/", middleware.isLoggedIn,  function (req, res) {
         username: req.user.username
     };
     // var ingredients = req.body.hiddenIngredient;
-    console.log(req.body.ingredient.name.length);
-    console.log(req.body.ingredient.quantity.length);
     var ingredients = [];
     for(var i = 0; i < req.body.ingredient.name.length - 1; i++){
         ingredients.push(
