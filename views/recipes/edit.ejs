@@ -16,8 +16,9 @@
             </div>
             <div class="form-group">
                 <label for="recipename">Description/Method</label>
-                <textarea class="form-control inputwidth" rows = "10" name="recipe[description]">
-                <%=recipe.description%></textarea>
+                <textarea class="form-control inputwidth" rows="10" name="recipe[description]">
+                    <%=recipe.description%>
+                </textarea>
             </div>
 
             <div class="card card-block bg-light p-3">
@@ -27,23 +28,57 @@
                 </div>
                 <ul id="ingredienList">
                 </ul>
+                <div class="row">
 
+                    <% for(var i = 0; i<6 ; i++){ %>
 
-                <% recipe.ingredients.forEach(function(ingredient){%>
-                    <div class="row div-ingredent">
-                        <div class="col">
-                            <input class="form-control inputwidth" type="text" name="ingredient[name][]" value = "<%= ingredient.name%>" placeholder="Ingredient">
+                        <% if (recipe.ingredients[i]) {%>
+                            <% var name = recipe.ingredients[i]["name"];%>
+                            <% var quantity = recipe.ingredients[i]["quantity"];%>
+                        <%} else {%>
+                            <% var name = undefined;%>
+                            <% var quantity = undefined;%>
+                        <% }%>
+
+                        <div class="col-md-6">
+                            <div class="row div-ingredent">
+                                <div class="col">
+                                    <input class="form-control inputwidth" type="text" name="ingredient[name][]" value="<%=name%>" placeholder="Ingredient">
+                                </div>
+                                <div class="col">
+                                    <input class="form-control inputwidth" type="text" name="ingredient[quantity][]" value="<%=quantity%>" placeholder="Quantity">
+                                </div>
+                            </div>
                         </div>
-                        <div class="col">
-                            <input class="form-control inputwidth" type="text" name="ingredient[quantity][]" value = "<%= ingredient.quantity%>" placeholder="Quantity">
+
+                    <% }%>
+                    <% for(var i = 6; i<12; i++){ %>
+
+                        <% if (recipe.ingredients[i]) {%>
+                            <% var name = recipe.ingredients[i]["name"];%>
+                            <% var quantity = recipe.ingredients[i]["quantity"];%>
+                        <%} else {%>
+                            <% var name =undefined;%>
+                            <% var quantity = undefined;%>
+                        <% }%>
+
+                        <div class="col-md-6">
+                            <div class="row div-ingredent">
+                                <div class="col">
+                                    <input class="form-control inputwidth" type="text" name="ingredient[name][]" value="<%=name%>" placeholder="Ingredient">
+                                </div>
+                                <div class="col">
+                                    <input class="form-control inputwidth" type="text" name="ingredient[quantity][]" value="<%=quantity%>" placeholder="Quantity">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                <% })%>
+                    <% }%>
+                </div>
 
 
                 <!-- <button id="add-ingredient" class="btn btn-primary btnwidth" type=button> Add More Ingredient</button> -->
             </div>
-            
+
             <button class="btn btn-outline-info btn-block btnwidth">Edit recipes</button>
 
         </form>
