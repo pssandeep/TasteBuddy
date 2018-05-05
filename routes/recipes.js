@@ -52,7 +52,8 @@ router.post("/", middleware.isLoggedIn,  function (req, res) {
         id: req.user._id,
         username: req.user.username
     };
-    // var ingredients = req.body.hiddenIngredient;
+
+// Add Ingredients to the Recipe.
     var ingredients = [];
     for(var i = 0; i < req.body.ingredient.name.length - 1; i++){
         ingredients.push(
@@ -97,7 +98,21 @@ router.get("/:id/edit", middleware.checkRecipeOwnership, (req, res) => {
 
 //Edit recipes
 router.put("/:id", middleware.checkRecipeOwnership,  (req, res) => {
-    recipe.findByIdAndUpdate(req.params.id, req.body.recipe, (err, updatedrecipe) => {
+
+    var ingredients = [];
+    for(var i = 0; i < req.body.ingredient.name.length - 1; i++){
+        ingredients.push(
+            {
+                name: req.body.ingredient.name[i],
+                quantity: req.body.ingredient.quantity[i]
+            }
+        );
+    }
+
+    var editRecipe = req.body.recipe;
+    editRecipe.ingredients = ingredients;
+
+    recipe.findByIdAndUpdate(req.params.id, editRecipe, (err, updatedrecipe) => {
         if (err) {
             console.log(err);
             req.flash("error",err.message);

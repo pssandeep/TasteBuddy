@@ -19,6 +19,31 @@
                 <textarea class="form-control inputwidth" rows = "10" name="recipe[description]">
                 <%=recipe.description%></textarea>
             </div>
+
+            <div class="card card-block bg-light p-3">
+
+                <div class="card-title">
+                    <h5>Edit Ingredients and Quantities below</h5>
+                </div>
+                <ul id="ingredienList">
+                </ul>
+
+
+                <% recipe.ingredients.forEach(function(ingredient){%>
+                    <div class="row div-ingredent">
+                        <div class="col">
+                            <input class="form-control inputwidth" type="text" name="ingredient[name][]" value = "<%= ingredient.name%>" placeholder="Ingredient">
+                        </div>
+                        <div class="col">
+                            <input class="form-control inputwidth" type="text" name="ingredient[quantity][]" value = "<%= ingredient.quantity%>" placeholder="Quantity">
+                        </div>
+                    </div>
+                <% })%>
+
+
+                <!-- <button id="add-ingredient" class="btn btn-primary btnwidth" type=button> Add More Ingredient</button> -->
+            </div>
+            
             <button class="btn btn-outline-info btn-block btnwidth">Edit recipes</button>
 
         </form>

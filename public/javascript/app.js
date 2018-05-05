@@ -1,4 +1,4 @@
-
+console.log("From app.js");
 
 // $("#add-ingredient").on("click", function(event){
 //     var ingredientList = [];
