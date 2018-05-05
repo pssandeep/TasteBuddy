@@ -44,7 +44,7 @@ router.get("/:id", function (req, res) {
 });
 
 //post route. Add new recipes to database
-router.post("/", middleware.isLoggedIn, function (req, res) {
+router.post("/", middleware.isLoggedIn,  function (req, res) {
     var name = req.body.name;
     var image = req.body.image;
     var desc = req.body.description;
@@ -52,15 +52,20 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
         id: req.user._id,
         username: req.user.username
     };
+    // var ingredients = req.body.hiddenIngredient;
+    console.log(req.body.ingredient.name.length);
+    console.log(req.body.ingredient.quantity.length);
     var ingredients = [];
-    console.log("====="+req.body.hiddenIngredient);
-    req.body.hiddenIngredient.forEach(element => {
-        console.log(element.name + "===="+element.quantity);
-        ingredients.push({
-            name : element.name,
-            quantity : element.quantity
-        });
-    });
+    for(var i = 0; i < req.body.ingredient.name.length - 1; i++){
+        ingredients.push(
+            {
+                name: req.body.ingredient.name[i],
+                quantity: req.body.ingredient.quantity[i]
+            }
+        );
+    }
+
+
     var newrecipe = {
         name : name,
         image : image,
