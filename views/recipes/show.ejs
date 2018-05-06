@@ -73,7 +73,19 @@
 
                                 <footer class="blockquote-footer">
                                     <%= comment.author.username%>
-                                        <small class="float-lg-right">10 days ago</small>
+                                    <!--<%= new Date().toLocaleString()%>
+                                    <%= new Date(comment.author.creationDate)%>-->
+                                    <% var diff = Math.round((new Date() - new Date(comment.author.creationDate))/(1000*60*60*24)) %> 
+                                    <small class="float-lg-right" title = "<%= comment.author.creationDate %>">
+                                        <% if(diff >= 2){ %>
+                                            <%= diff%> days ago
+                                        <% } else if (diff >= 1 && diff < 2) {%>
+                                            Yesterday
+                                        <% } else {%>
+                                            Today
+                                        <% } %>
+                                       
+                                    </small>
                                 </footer>
                                 <%if(currentUser && comment.author.id.equals(currentUser._id)){ %>
                                     <form method="POST" action="/recipes/<%= recipe._id%>/comments/<%= comment._id%>?_method=DELETE">

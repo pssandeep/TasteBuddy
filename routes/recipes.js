@@ -90,7 +90,6 @@ router.post("/", middleware.isLoggedIn,  function (req, res) {
 //Form to Edit recipes
 router.get("/:id/edit", middleware.checkRecipeOwnership, (req, res) => {
         recipe.findById(req.params.id, (err, foundrecipe) => {
-            console.log(foundrecipe);
             res.render("recipes/edit", {
                 recipe: foundrecipe
             });
