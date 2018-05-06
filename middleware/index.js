@@ -52,7 +52,6 @@ middlewareObj.checkCommentOwnership = function (req, res, next) {
                 res.redirect("back");
             } else {
                 //Does user own comment
-                console.log(foundComment);
                 if (foundComment.author.id.equals(req.user._id)) {
                     next();
                 } else {

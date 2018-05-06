@@ -2,12 +2,12 @@
 
 
     <div class="container">
-            <h2 class = "hdcenter">Edit Comment to <%= recipe.name%></h2>
+        <h2 class = "hdcenter">Edit Comment to <%= recipe.name%></h2>
         <form action="/recipes/<%= recipe._id%>/comments/<%= comment._id%>?_method=PUT" method="POST">
 
-            <input class = "form-control inputwidth text-center" type="text" name="comment[text]" value="<%= comment.text%>">
+            <input class = "form-control inputwidthcomment" type="text" name="comment[text]" value="<%= comment.text%>">
             <!-- <input class = "form-control inputwidth text-center" type="text" name="comment[author]" placeholder="Author"> -->
-            <button class = "btn btn-outline-info btn-block btnwidth">Edit Comments</button>
+            <button class = "btn btn-outline-info btn-block btnwidthcomment">Edit Comments</button>
 
         </form>
 

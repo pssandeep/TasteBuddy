@@ -5,12 +5,12 @@
             <h2 class = "hdcenter">Add New Comment to <%= recipe.name%></h2>
         <form action="/recipes/<%= recipe._id%>/comments" method="POST">
 
-            <input class = "form-control inputwidth text-center" type="text" name="comment[text]" placeholder="Enter Comments here ...">
+            <input class = "form-control inputwidthcomment" type="text" name="comment[text]" placeholder="Enter Comments here ...">
             <!-- <input class = "form-control inputwidth text-center" type="text" name="comment[author]" placeholder="Author"> -->
-            <button class = "btn btn-outline-info btn-block btnwidth">Add Comments</button>
+            <button class = "btn btn-outline-info btn-block btnwidthcomment">Add Comments</button>
 
         </form>
 
         <div class = "footerwidth"><a href="/recipes/<%= recipe._id%>">Back</a></div>
     </div>
-    <% include ../partials/footer %>
+<% include ../partials/footer %>

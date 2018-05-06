@@ -26,6 +26,23 @@ button.btnwidth{
       /* margin :25px auto; */
   }
 
+input.inputwidthauth[type = "text"],
+input.inputwidthauth[type = "password"],
+button.btnwidthauth{
+      width : 30%;
+      margin :25px auto;
+  }
+
+input.inputwidthcomment[type = "text"]{
+      width : 100%;
+      margin :25px auto;
+  }
+
+ button.btnwidthcomment{
+    width : 20%;
+    margin :25px auto;
+}
+
   div.footerwidth{
       width : 30%;
       /* margin : 25px auto; */
